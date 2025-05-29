@@ -20,7 +20,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
   return {
     // Return this function to the container - used to notify
     // marketing app when container changes browser history
-    onParentNavigate: ({ pathname: nextPathname }) => {
+    onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
 
       if (pathname !== nextPathname) {
