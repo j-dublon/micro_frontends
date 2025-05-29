@@ -4,7 +4,7 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import App from "./App";
 
 // Mount function to start up the app
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
   // If defaultHistory (browser history) provided - i.e marketing running in isolation -
   // use it, otherwise create memory history
   const history =
@@ -19,7 +19,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App history={history} onSignIn={onSignIn} />, el);
 
   return {
     // Return this function to the container - used to notify
