@@ -5,6 +5,7 @@ import App from "./App";
 
 // Mount function to start up the app
 const mount = (el, { onNavigate, defaultHistory }) => {
+  console.log("HI, HELLO");
   // If defaultHistory (browser history) provided - i.e marketing running in isolation -
   // use it, otherwise create memory history
   const history = defaultHistory || createMemoryHistory();
@@ -17,7 +18,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
 
   ReactDOM.render(<App history={history} />, el);
 
-  return {
+  const objectToReturn = {
     // Return this function to the container - used to notify
     // marketing app when container changes browser history
     onParentNavigate({ pathname: nextPathname }) {
@@ -28,6 +29,9 @@ const mount = (el, { onNavigate, defaultHistory }) => {
       }
     },
   };
+  console.log("RETURNING OBJECT TO CONTAINER: ", objectToReturn);
+
+  return objectToReturn;
 };
 
 // If we are in development and in isolation,
