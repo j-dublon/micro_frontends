@@ -8,6 +8,8 @@ export default () => {
 
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
+      // Function passed to marketing app - when called, updates
+      // container history to match marketing
       onNavigate: ({ pathname: nextPathname }) => {
         const { pathname } = history.location;
         if (pathname !== nextPathname) {
@@ -16,6 +18,8 @@ export default () => {
       },
     });
 
+    // Update the marketing app history when container changes
+    // its history
     history.listen(onParentNavigate);
   }, []);
 
