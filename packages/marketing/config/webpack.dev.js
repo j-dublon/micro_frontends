@@ -9,13 +9,10 @@ const devConfig = {
   devServer: {
     port: 8081,
     historyApiFallback: {
-      index: "/index.html",
+      historyApiFallback: true,
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./public/index.html",
-    }),
     new ModuleFederationPlugin({
       name: "marketing",
       filename: "remoteEntry.js",
@@ -23,6 +20,9 @@ const devConfig = {
         "./MarketingApp": "./src/bootstrap",
       },
       shared: packageJson.dependencies,
+    }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
     }),
   ],
 };

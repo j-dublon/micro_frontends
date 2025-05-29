@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 export default () => {
-  const ref = useRef(0);
+  const ref = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
@@ -12,6 +12,7 @@ export default () => {
       // container history to match marketing
       onNavigate: ({ pathname: nextPathname }) => {
         const { pathname } = history.location;
+
         if (pathname !== nextPathname) {
           history.push(nextPathname);
         }
