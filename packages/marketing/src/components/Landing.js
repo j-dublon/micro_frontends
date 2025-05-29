@@ -119,7 +119,7 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://unsplash.com/photos/airplane-on-ground-surrounded-with-trees-G85VuTpw6jg"
+                    image={`https://picsum.photos/seed/${card}/600/400`}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
